@@ -1,5 +1,7 @@
 %% Running the GLM with new shit (Round 2)
 
+% load in .mat file, and go to town
+
 % params
 plotOn = 1;
 saveOn = 1;
@@ -243,14 +245,6 @@ end
 end % end Conds loop
 
 
-% need to save out kernels still
-%ws.(label).data
-%ws.(label).tr
-% so just save out ws struct... included in the previous mat files so we
-% have them
-
-
-
 %% TO DO
 % add cross validation by resampling subsets of trials from the design matrix
 
@@ -339,16 +333,29 @@ hold off
 
 
 %% mean data/prediction psths (across all units)
+
+span = 10;
+
 figure
 hold all
-plot(mean(targDataX),mean(targPSTH))
-plot(mean(targModelX),smooth(mean(targModel),10)) % no x values yets, so these aren't plotted right yet
+plot(mean(targModelX),smooth(mean(targModel),span),'linewidth',2) % used mean x, but they should all be the same
+plot(mean(targDataX),mean(targPSTH),'linewidth',2)
+title('Target locked, population average')
+ylabel('Firing rate (Hz)')
+xlabel('Time (ms)')
+xlim([-100 700])
+legend('Model Prediction','Data','Location','Best')
 hold off
 
 figure
 hold all
-plot(mean(sacDataX),mean(sacPSTH))
-plot(mean(sacModelX),smooth(mean(sacModel),10)) % didn't put in xvalues yet
+plot(mean(sacModelX),smooth(mean(sacModel),span),'linewidth',2) % used mean x, but they should all be the same
+plot(mean(sacDataX),mean(sacPSTH),'linewidth',2)
+title('Saccade locked, population average')
+ylabel('Firing rate (Hz)')
+xlabel('Time (ms)')
+legend('Model Prediction','Data','Location','Best')
+xlim([-700 100])
 hold off
 
 

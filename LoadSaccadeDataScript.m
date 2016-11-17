@@ -5,28 +5,30 @@
 %% Load data
 %cd ../'GLM LIP'/'Data (processed)'/
 
+% don't need the .mat extension... we load them like that
+
 % Pat
 
-% fileNameStim = 'pat120512saccademapping1518_stim.mat';
-% fileNameSpikes = 'pat120512map1518_spikes.mat';
+% fileNameStim = 'pat120512saccademapping1518_stim';
+% fileNameSpikes = 'pat120512map1518_spikes';
 % goodUnits = 1:3;% goodUnits come from info_lipglm
         
-% fileNameStim = 'pat120412saccademapping1423_stim.mat';
-% fileNameSpikes = 'pat120412map1423_spikes.mat';
+% fileNameStim = 'pat120412saccademapping1423_stim';
+% fileNameSpikes = 'pat120412map1423_spikes';
 % goodUnits = [1 2];% goodUnits come from info_lipglm
 
 % *** Not sure why there is still an indexing issue with this one!!! (maybe the error is on the other side - the boundary for the target or soemthing
-fileNameStim = 'pat111412saccademapping1351_stim.mat';
-fileNameSpikes = 'pat111412map1351_spikes.mat';
+fileNameStim = 'pat111412saccademapping1351_stim';
+fileNameSpikes = 'pat111412map1351_spikes';
 goodUnits = [1 2];% goodUnits come from info_lipglm
 
-% fileNameStim = 'pat110712saccademapping1402_stim.mat';
-% fileNameSpikes = 'pat110712map1400_spikes.mat';
+% fileNameStim = 'pat110712saccademapping1402_stim';
+% fileNameSpikes = 'pat110712map1400_spikes';
 % goodUnits = 1:3;% goodUnits come from info_lipglm
 
 % trial start = 277 (???? what)
-% fileNameStim = 'pat110412saccademapping1247_stim.mat';
-% fileNameSpikes = 'pat110412map1251_spikes.mat'; %'pat110412saccademapping1247_bp1000spikes.mat';
+% fileNameStim = 'pat110412saccademapping1247_stim';
+% fileNameSpikes = 'pat110412map1251_spikes'; %'pat110412saccademapping1247_bp1000spikes.mat';
 % goodUnits = 2:3;% goodUnits come from info_lipglm
 % 
 
