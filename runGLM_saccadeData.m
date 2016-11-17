@@ -273,6 +273,7 @@ for k = 1:numFiles
   
   targK{k} = targData{k}.ws.targon.data; % (ws struct doesn't matter if it comes from targ or sac data because it's not aligned to those, it's jsut the kernels) 
   sacK{k} = targData{k}.ws.saccade.data;
+  histK{k} = targData{k}.ws.hist.data;
   
 end
 targPSTH = cell2mat(targPSTH'); % overwriting here... careful
@@ -281,7 +282,7 @@ targK = cell2mat(targK)'; % be aware... different transposing in these
 sacK = cell2mat(sacK)';
 targDataX = cell2mat(targDataX'); % overwriting here... careful
 targModelX = cell2mat(targModelX');
-
+histK = cell2mat(histK)';
 
 % sac files
 sacFiles = dir('*_modeled_sac.mat'); 
@@ -312,7 +313,7 @@ sacModelX = cell2mat(sacModelX');
 
 %%
 % all kernels
-figure
+fig = figure;
 hold all
 plot(targData{k}.ws.targon.tr,targK) % x-axis: all tr should be the same if you were consistent so, picking the x range from any unit should be fine
 plot(targData{k}.ws.targon.tr,mean(targK),'--k','linewidth',2)
@@ -321,7 +322,7 @@ ylabel('Gain')
 xlabel('Time (ms)')
 hold off
 
-figure
+fig = figure;
 hold all
 plot(targData{k}.ws.saccade.tr,sacK) % x-axis: all tr should be the same if you were consistent so, picking the x range from any unit should be fine
 plot(targData{k}.ws.saccade.tr,mean(sacK),'--k','linewidth',2)
@@ -330,6 +331,18 @@ ylabel('Gain')
 xlabel('Time (ms)')
 hold off
 
+fig = figure;
+hold all
+plot(targData{k}.ws.hist.tr,histK) % x-axis: all tr should be the same if you were consistent so, picking the x range from any unit should be fine
+plot(targData{k}.ws.hist.tr,mean(histK),'--k','linewidth',2)
+title('History Kernels')
+ylabel('Gain')
+xlabel('Time (ms)')
+xlim([0 30]) % for better visualization
+hold off
+
+%%
+%print(fig,'-dpdf','history_kernels','-bestfit')
 
 
 %% mean data/prediction psths (across all units)
